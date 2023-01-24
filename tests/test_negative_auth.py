@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 
 # авторизация по номеру, почте, логину и ЛС с невалидными данными
-@pytest.mark.parametrize('input', ['', '+7916936834', 'eldem90ya.ru', \
+@pytest.mark.parametrize('input', ['', '+7916936834', 'eldm90ya.ru', \
                                    'почта@мыло.ру', '@ru', '98764562784985029525287562875', '!@#$%^&*()_+><'])
 @pytest.mark.parametrize('password', ['ElenaDemchuk', '12345443', '!@#$%^&*()'])
 def test_auth_with_invalid_volue(start_page, input, password):
@@ -27,7 +27,7 @@ def test_auth_with_invalid_volue(start_page, input, password):
 # проверка регистрации с невалидными данными
 @pytest.mark.parametrize('name', ['Q', 'С1'])
 @pytest.mark.parametrize('lastname', ['Оченьдлиннаяфамилиясостоящаяизмногихсимволов'])
-@pytest.mark.parametrize('address', ['+7916936834', 'eldem90ya.ru', 'почта@мыло.ру'])
+@pytest.mark.parametrize('address', ['+7916936834', 'eldm90ya.ru', 'почта@мыло.ру'])
 @pytest.mark.parametrize('password', ['Elena12', '12345678', 'elena123'])
 @pytest.mark.parametrize('confirm', ['Elena12', 'elena123'])
 def test_reg_with_invalid_volue(start_page, name, lastname, address, password, confirm):
