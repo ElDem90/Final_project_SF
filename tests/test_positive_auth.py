@@ -55,8 +55,8 @@ def test_link_agreement(start_page):
 
 def test_auth_with_valid_phone(start_page):
     ros_tel = AuthPage(start_page)
-    ros_tel.input.send_keys('+79169368340')
-    ros_tel.password.send_keys('ElenaDemchuk90')
+    ros_tel.input.send_keys('валидный номер телефона')
+    ros_tel.password.send_keys('валидный пароль')
     ros_tel.auth_btn.click()
 
     assert ros_tel.find_element(By.ID, 'lk-btn').text == 'Личный кабинет'
@@ -66,8 +66,8 @@ def test_auth_with_valid_phone(start_page):
 
 def test_auth_with_valid_mail(start_page):
     ros_tel = AuthPage(start_page)
-    ros_tel.input.send_keys('eldem90@ya.ru')
-    ros_tel.password.send_keys('ElenaDemchuk90')
+    ros_tel.input.send_keys('валидная почта')
+    ros_tel.password.send_keys('валидный пароль')
     ros_tel.auth_btn.click()
 
     assert ros_tel.find_element(By.ID, 'lk-btn').text == 'Личный кабинет'
@@ -77,8 +77,8 @@ def test_auth_with_valid_mail(start_page):
 
 def test_auth_with_login(start_page):
     ros_tel = AuthPage(start_page)
-    ros_tel.input.send_keys('rtkid_1670686419706')
-    ros_tel.password.send_keys('ElenaDemchuk90')
+    ros_tel.input.send_keys('номер ЛС')
+    ros_tel.password.send_keys("валидный пароль')
     ros_tel.auth_btn.click()
 
     assert ros_tel.find_element(By.ID, 'lk-btn').text == 'Личный кабинет'
@@ -90,7 +90,7 @@ def test_auth_with_login(start_page):
 
 def test_auth_with_sms(start_page):
     ros_tel = CodePage(start_page)
-    ros_tel.address.send_keys('+79169368340')
+    ros_tel.address.send_keys('валидный номер телефона')
     ros_tel.get_code.click()
 
     assert ros_tel.find_element(By.CLASS_NAME, 'card-container__title').text == 'Код подтверждения отправлен'
@@ -100,7 +100,7 @@ def test_auth_with_sms(start_page):
 
 def test_auth_with_mail(start_page):
     ros_tel = CodePage(start_page)
-    ros_tel.address.send_keys('eldem90@ya.ru')
+    ros_tel.address.send_keys('валидная почта')
     ros_tel.get_code.click()
 
     assert ros_tel.find_element(By.CLASS_NAME, 'card-container__title').text == 'Код подтверждения отправлен'
